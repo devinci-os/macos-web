@@ -23,6 +23,9 @@
 
     width: 100%;
     height: 1.7rem;
+    position: fixed;
+    top: 0;
+    z-index: 10;
 
     background-color: hsla(var(--system-color-light-hsl), 0.3);
 
