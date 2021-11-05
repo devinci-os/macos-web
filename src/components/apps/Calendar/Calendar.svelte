@@ -63,6 +63,12 @@
 
     overflow: hidden;
 
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    grid-template-rows: 1fr;
+
     &.dark {
       box-shadow: inset 0 0 0 0.9px hsla(var(--system-color-dark-hsl), 0.2),
         0 0 0 1.5px hsla(var(--system-color-light-hsl), 0.5);

@@ -30,7 +30,7 @@
     const hour = date.getHours();
 
     const wallpaperTimestampsMap = wallpapersConfig[$wallpaper.id].timestamps.wallpaper;
-    const timestamps = Object.keys(wallpaperTimestampsMap);
+    const timestamps = Object.keys(wallpaperTimestampsMap) as number[];
 
     const minTimestamp = Math.min(...timestamps);
     const maxTimestamp = Math.max(...timestamps);
@@ -59,7 +59,7 @@
     const hour = date.getHours();
 
     const themeTimestampsMap = wallpapersConfig[$wallpaper.id].timestamps.theme;
-    const timestamps = Object.keys(themeTimestampsMap);
+    const timestamps = Object.keys(themeTimestampsMap) as number[];
 
     const minTimestamp = Math.min(...timestamps);
     const maxTimestamp = Math.max(...timestamps);
