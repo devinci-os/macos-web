@@ -2,16 +2,15 @@
   import { onMount } from 'svelte';
   import { colors } from '__/configs/theme/colors.config';
   import { wallpapersConfig } from '__/configs/wallpapers/wallpaper.config';
-  import { activeApp, openApps } from '__/stores/apps.store';
   import { prefersReducedMotion } from '__/stores/prefers-motion.store';
   import { theme } from '__/stores/theme.store';
   import { wallpaper } from '__/stores/wallpaper.store';
+  import { WebView } from '__/stores/window.store';
   import DarkMode from '~icons/gg/dark-mode';
   import CheckedIcon from '~icons/ic/outline-check';
   import TransitionMaskedIcon from '~icons/mdi/transition-masked';
   import ActionCenterSurface from './ActionCenterSurface.svelte';
   import ActionCenterTile from './ActionCenterTile.svelte';
-
   export let isThemeWarningDialogOpen: boolean;
 
   let containerEl: HTMLElement;
@@ -30,8 +29,12 @@
   }
 
   function openWallpapersApp() {
-    $openApps.wallpapers = true;
-    $activeApp = 'wallpapers';
+    new WebView({
+      title: 'Wallpaper',
+      appID: 'wallpapers',
+      loadComponent: async () =>
+        (await import('@ui/components/apps/WallpaperApp/WallpaperSelectorApp.svelte')).default,
+    }).open();
   }
 
   onMount(() => containerEl?.focus());

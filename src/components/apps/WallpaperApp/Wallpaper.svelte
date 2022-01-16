@@ -81,11 +81,11 @@
 </script>
 
 <!-- Prefetch all wallpapers -->
-<svelte:head>
+<!-- <svelte:head>
   {#each Object.values(wallpapersConfig) as { thumbnail }}
     <link rel="prefetch" href="/assets/wallpapers/{thumbnail}.jpg" />
   {/each}
-</svelte:head>
+</svelte:head> -->
 
 <!-- This preload and render the image for browser but invisible to user -->
 <img

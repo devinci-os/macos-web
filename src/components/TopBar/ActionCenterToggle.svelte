@@ -1,7 +1,8 @@
 <script lang="ts">
+  import wallpaper from 'os/macos/apps/wallpaper/wallpaper';
   import { clickOutside, focusOutside } from '__/actions';
   import { fadeIn, fadeOut } from '__/helpers/fade';
-  import { activeApp, openApps } from '__/stores/apps.store';
+  import { WebView } from '__/stores/window.store';
   import SwitchSvg from '../SVG/SwitchSVG.svelte';
   import SystemDialog from '../SystemUI/SystemDialog.svelte';
   import ActionCenter from './ActionCenter.svelte';
@@ -56,10 +57,13 @@
       <button
         class="confirm"
         on:click={() => {
-          themeWarningDialog.close();
-
-          $openApps.wallpapers = true;
-          $activeApp = 'wallpapers';
+          new WebView({
+            title: 'Wallpapers',
+            appID: 'wallpaper',
+            loadComponent: async () =>
+              (await import('@ui/components/apps/WallpaperApp/WallpaperSelectorApp.svelte'))
+                .default,
+          }).open();
         }}
       >
         Go to Wallpapers

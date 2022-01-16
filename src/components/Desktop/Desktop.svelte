@@ -3,7 +3,7 @@
   import TopBar from '__/components/TopBar/TopBar.svelte';
   import Wallpaper from '../apps/WallpaperApp/Wallpaper.svelte';
   import BoostupScreen from './BootupScreen.svelte';
-  import ContextMenu from './ContextMenu.svelte';
+  import ContextMenu from '../../../../../src/apps/finder/ContextMenu.svelte';
   import WindowsArea from './Window/WindowsArea.svelte';
 
   let mainEl: HTMLElement;
